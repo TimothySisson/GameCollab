@@ -8,12 +8,13 @@ var client = null
 
 var ip_address = ""
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ip_address = IP.get_local_addresses()[3]
 	
+	# warning-ignore:return_value_discarded
 	get_tree().connect("connected_to_server", self, "_connected_to_server")
+	# warning-ignore:return_value_discarded
 	get_tree().connect("server_disconnected", self, "_server_disconnected")
 	
 func _connected_to_server():
